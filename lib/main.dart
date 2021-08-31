@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(essen());
+  runApp(mein_APP());
 }
 
-class essen extends StatelessWidget {
+class mein_APP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +22,17 @@ class essen extends StatelessWidget {
   }
 }
 
-class DasEssen extends StatelessWidget {
+class DasEssen extends StatefulWidget {
+  @override
+  _DasEssenState createState() => _DasEssenState();
+}
+
+class _DasEssenState extends State<DasEssen> {
+
+  int suppe_No=1;
+  int haupt_essen_No=1;
+  int nachtisch_No=1;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -31,28 +41,44 @@ class DasEssen extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Image.asset('assets/corba_2.jpg'),
-            ),
-          ),
-
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Image.asset('assets/yemek_3.jpg'),
+              child: Image.asset('assets/corba_$suppe_No.jpg'),
             ),
           ),
           TextButton(
               onPressed: (){
-                print('tiklandi');
+                print("Tiklandi");
               },
-              child: Text('Corba',style: TextStyle,),
+              child: Text('Suppe')),
+
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Image.asset('assets/yemek_$haupt_essen_No.jpg'),
+            ),
+          ),
+          TextButton(
+              onPressed: (){
+                setState(() {
+                  if(haupt_essen_No<=4){
+                  haupt_essen_No=haupt_essen_No+1;}
+                });
+
+                print('tiklandi ve yemek no = $haupt_essen_No' );
+              },
+              child: Text('Haupt Essen'),
           ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Image.asset('assets/tatli_1.jpg'),
+              child: Image.asset('assets/tatli_$nachtisch_No.jpg'),
+
             ),
           ),
+          TextButton(
+              onPressed: (){
+                print('Tiklandi');
+              },
+              child: Text('Nachtisch')),
         ],
       ),
     );
