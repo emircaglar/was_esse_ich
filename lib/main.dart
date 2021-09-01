@@ -32,7 +32,7 @@ class _DasEssenState extends State<DasEssen> {
   int suppe_No=1;
   int haupt_essen_No=1;
   int nachtisch_No=1;
-
+List<String> corbalar=["Mercimek","Tarhana","Dugun C","Yogurtlu"];
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -48,7 +48,14 @@ class _DasEssenState extends State<DasEssen> {
               onPressed: (){
                 print("Tiklandi");
               },
-              child: Text('Suppe')),
+              child: Text(corbalar[suppe_No])),
+          Container(
+            width: 150,
+            child:Divider(
+              height: 10,
+              color: Colors.purple,
+            ),
+          ),
 
           Expanded(
             child: Padding(
@@ -67,6 +74,14 @@ class _DasEssenState extends State<DasEssen> {
               },
               child: Text('Haupt Essen'),
           ),
+          Container(
+            width: 150,
+            child:Divider(
+              height: 10,
+              color: Colors.purple,
+            ),
+          ),
+
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -79,6 +94,14 @@ class _DasEssenState extends State<DasEssen> {
                 print('Tiklandi');
               },
               child: Text('Nachtisch')),
+          Container(
+            width: 150,
+            child:Divider(
+              height: 10,
+              color: Colors.purple,
+            ),
+          ),
+
         ],
       ),
     );
