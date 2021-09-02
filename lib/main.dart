@@ -32,7 +32,10 @@ class _DasEssenState extends State<DasEssen> {
   int suppe_No=1;
   int haupt_essen_No=1;
   int nachtisch_No=1;
-List<String> corbalar=["Mercimek","Tarhana","Dugun C","Yogurtlu"];
+
+List<String> suppe=["Mercimek","Tarhana","Tavuk C","Dugun C","Yogurtlu C"];
+List<String> hauptEssen=["Karnı Yarık ","Mantı","Icli Köfte","Balık"];
+List<String> nachTisch=["Fıstık Sarma","Baklava","Sütlac","Kazan Dibi","Dondurma"];
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -46,9 +49,13 @@ List<String> corbalar=["Mercimek","Tarhana","Dugun C","Yogurtlu"];
           ),
           TextButton(
               onPressed: (){
+                setState(() {
+                  if(suppe_No<=4)
+                    suppe_No=suppe_No+1;
+                });
                 print("Tiklandi");
               },
-              child: Text(corbalar[suppe_No])),
+              child: Text(suppe[suppe_No-1])),
           Container(
             width: 150,
             child:Divider(
@@ -72,7 +79,7 @@ List<String> corbalar=["Mercimek","Tarhana","Dugun C","Yogurtlu"];
 
                 print('tiklandi ve yemek no = $haupt_essen_No' );
               },
-              child: Text('Haupt Essen'),
+              child: Text(hauptEssen[haupt_essen_No-1]),
           ),
           Container(
             width: 150,
@@ -91,9 +98,13 @@ List<String> corbalar=["Mercimek","Tarhana","Dugun C","Yogurtlu"];
           ),
           TextButton(
               onPressed: (){
+                setState(() {
+                  if(nachtisch_No<=4)
+                    nachtisch_No=nachtisch_No+1;
+                });
                 print('Tiklandi');
               },
-              child: Text('Nachtisch')),
+              child: Text(nachTisch[nachtisch_No-1])),
           Container(
             width: 150,
             child:Divider(
